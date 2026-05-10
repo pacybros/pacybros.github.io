@@ -224,12 +224,53 @@ transition:all 0.3s ease;
 .card.show .fade-child:nth-child(4){transition-delay:0.4s;opacity:1;transform:translateY(0);}
 .card.show .fade-child:nth-child(5){transition-delay:0.5s;opacity:1;transform:translateY(0);}
 
-/* FOOTER */
 footer{
 background:var(--dark);
 color:white;
 text-align:center;
 padding:40px 0;
+position:relative;
+min-height:160px;
+overflow:hidden;
+}
+
+/* Footer Images */
+.footer-left{
+position:absolute;
+bottom:10px;
+left:10px;
+}
+
+.footer-right{
+position:absolute;
+bottom:10px;
+right:10px;
+}
+
+.footer-left img,
+.footer-right img{
+max-width:120px;
+height:auto;
+display:block;
+}
+
+/* Mobile */
+@media(max-width:768px){
+
+.footer-left img,
+.footer-right img{
+max-width:70px;
+}
+
+.footer-left{
+left:5px;
+bottom:5px;
+}
+
+.footer-right{
+right:5px;
+bottom:5px;
+}
 }
 
 @media(max-width:768px){
@@ -590,14 +631,26 @@ With over 6 years of experience, and a 10-year guarantee, you can trust your fen
 Serving Doncaster, xpro, test2, test3, test4 and nearby areas.
 </p>
 <footer class="fade">
+
+<!-- Bottom Left Image -->
+<div class="footer-left">
+<img src="/images/left-image.webp" alt="Left Footer Image">
+</div>
+
+<!-- Bottom Right Image -->
+<div class="footer-right">
+<img src="/images/right-image.webp" alt="Right Footer Image">
+</div>
+
 <div class="container">
 <p>&copy; 2026 HomeRepairs4U. All rights reserved.</p>
 </div>
+
 <div style="text-align:center; margin-top:20px;">
 <a href="tel:07735873694" class="btn">Call Martin</a>
 </div>
-</footer>
 
+</footer>
 <script>
 document.addEventListener("DOMContentLoaded", function(){
 // Fade in
