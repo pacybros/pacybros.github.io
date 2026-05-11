@@ -1,11 +1,15 @@
 <li><a href="https://pacys.co.uk/">Home</a></li>
+
+martin steel <martinsteel940@gmail.com>
+13:52 (3 minutes ago)
+to me
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-<title>Animated Cards</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animated Template Cards</title>
 
 <style>
 
@@ -15,30 +19,26 @@ padding:0;
 box-sizing:border-box;
 }
 
-html,
-body{
+html,body{
 width:100%;
 background:#000;
 font-family:Arial,sans-serif;
 overflow-x:hidden;
 }
 
-/* GRID */
+/* DESKTOP GRID */
 
 .menu{
 width:100%;
 min-height:100vh;
-
 display:grid;
 grid-template-columns:repeat(3,1fr);
 grid-template-rows:repeat(3,1fr);
-
 gap:2px;
-
 background:#fff;
 }
 
-/* CARDS */
+/* CARD */
 
 .card{
 background:#000;
@@ -46,23 +46,23 @@ color:#fff;
 
 display:flex;
 flex-direction:column;
-
 justify-content:center;
 align-items:center;
 
 text-align:center;
 
 min-height:33.33vh;
-
 padding:40px;
 
 opacity:0;
+filter:blur(12px);
 
-will-change:transform, opacity;
+will-change:transform,opacity,filter;
 
 transition:
-opacity 1s cubic-bezier(.22,1,.36,1),
-transform 1s cubic-bezier(.22,1,.36,1),
+opacity 1.8s cubic-bezier(.16,1,.3,1),
+transform 1.8s cubic-bezier(.16,1,.3,1),
+filter 1.8s cubic-bezier(.16,1,.3,1),
 background .35s ease,
 color .35s ease;
 
@@ -70,67 +70,42 @@ backface-visibility:hidden;
 -webkit-backface-visibility:hidden;
 }
 
-/* ACTIVE STATE */
+/* SHOW */
 
 .card.show{
 opacity:1;
 transform:translate3d(0,0,0) scale(1);
+filter:blur(0);
 }
 
 /* TITLES */
 
 .card h2{
 font-size:clamp(28px,3vw,54px);
+letter-spacing:4px;
 text-transform:uppercase;
-letter-spacing:3px;
-margin-bottom:12px;
+margin-bottom:14px;
 }
 
 /* TEXT */
 
 .card p{
 font-size:clamp(14px,1.2vw,18px);
-opacity:0.7;
-letter-spacing:1px;
+opacity:.7;
+letter-spacing:2px;
 }
 
 /* ENTRY DIRECTIONS */
 
-.top{
-transform:translate3d(0,-140px,0);
-}
-
-.bottom{
-transform:translate3d(0,140px,0);
-}
-
-.left{
-transform:translate3d(-140px,0,0);
-}
-
-.right{
-transform:translate3d(140px,0,0);
-}
-
-.tl{
-transform:translate3d(-140px,-140px,0);
-}
-
-.tr{
-transform:translate3d(140px,-140px,0);
-}
-
-.bl{
-transform:translate3d(-140px,140px,0);
-}
-
-.br{
-transform:translate3d(140px,140px,0);
-}
-
-.center{
-transform:scale(0.2);
-}
+.top{transform:translate3d(0,-220px,0);}
+.bottom{transform:translate3d(0,220px,0);}
+.left{transform:translate3d(-220px,0,0);}
+.right{transform:translate3d(220px,0,0);}
+.tl{transform:translate3d(-220px,-220px,0);}
+.tr{transform:translate3d(220px,-220px,0);}
+.bl{transform:translate3d(-220px,220px,0);}
+.br{transform:translate3d(220px,220px,0);}
+.center{transform:scale(.25);}
 
 /* HOVER */
 
@@ -139,9 +114,9 @@ background:#fff;
 color:#000;
 }
 
-/* MOBILE */
+/* MOBILE STACK */
 
-@media (max-width:768px){
+@media(max-width:768px){
 
 .menu{
 grid-template-columns:1fr;
@@ -155,7 +130,6 @@ min-height:100svh;
 
 </style>
 </head>
-
 <body>
 
 <div class="menu">
@@ -209,11 +183,9 @@ min-height:100svh;
 
 <script>
 
-/* INTERSECTION OBSERVER */
+const cards=document.querySelectorAll('.card');
 
-const cards = document.querySelectorAll('.card');
-
-const observer = new IntersectionObserver((entries)=>{
+const observer=new IntersectionObserver((entries)=>{
 
 entries.forEach((entry,index)=>{
 
@@ -223,19 +195,17 @@ setTimeout(()=>{
 
 entry.target.classList.add('show');
 
-}, index * 120);
+},index*280);
 
 }
 
 });
 
 },{
-threshold:0.2
+threshold:.25
 });
 
-cards.forEach(card=>{
-observer.observe(card);
-});
+cards.forEach(card=>observer.observe(card));
 
 </script>
 
