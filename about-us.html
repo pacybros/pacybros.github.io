@@ -805,5 +805,41 @@ observer.observe(banner);
 <span class="lightbox-close">&times;</span>
 <img class="lightbox-img" src="" alt="">
 </div>
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.querySelector(".lightbox-img");
+const closeBtn = document.querySelector(".lightbox-close");
+
+if (!lightbox || !lightboxImg || !closeBtn) return;
+
+document.querySelectorAll(".card img").forEach(img => {
+
+img.addEventListener("click", () => {
+lightboxImg.src = img.src;
+lightbox.classList.add("show");
+});
+
+});
+
+closeBtn.addEventListener("click", () => {
+lightbox.classList.remove("show");
+});
+
+lightbox.addEventListener("click", (e) => {
+if (e.target === lightbox) {
+lightbox.classList.remove("show");
+}
+});
+
+document.addEventListener("keydown", (e) => {
+if (e.key === "Escape") {
+lightbox.classList.remove("show");
+}
+});
+
+});
+</script>
 </body>
 </html>
