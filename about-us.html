@@ -376,38 +376,6 @@ margin: 0;
 margin-bottom: 30px; /* spacing below heading */
 }
 
-/* Moving Banner Styles */
-.moving-banner {
-background: var(--dark);
-color: white;
-overflow: hidden;
-white-space: nowrap;
-padding: 15px 0;
-font-weight: 600;
-}
-
-.moving-banner .banner-track {
-display: inline-block;
-padding-left: 100%;
-animation: none; /* stop by default */
-}
-
-.moving-banner span {
-display: inline-block;
-margin: 0 40px;
-}
-
-@keyframes scroll-left {
-0% { transform: translateX(0); }
-100% { transform: translateX(-100%); }
-}
-
-/* Optional: slower scroll on mobile */
-@media(max-width:768px){
-.moving-banner .banner-track {
-animation-duration: 70s;
-}
-}
 .hero h1 {
 font-size: 4rem; /* desktop size */
 line-height: 1.2;
@@ -481,7 +449,6 @@ cursor: zoom-in;
 <ul class="menu">
 <li><a href="https://pacys.co.uk/">Home</a></li>
 <li><a href="https://pacys.co.uk/services.html">Our Services</a></li>
-<li><a href="https://pacys.co.uk/about-us.html">About Us</a></li>
 <li><a href="https://pacys.co.uk/instant-quote.html">Instant Quote</a></li>
 <li><a href="https://pacys.co.uk/contact-us.html">Contact</a></li>
 </ul>
@@ -501,22 +468,6 @@ cursor: zoom-in;
 </div>
 </section>
 
-
-
-<section class="section">
-<div class="container">
-<h2 class="fade" style="text-align:center;font-size:2.5rem;">Our Service Area.</h2>
-<!-- Moving Banner -->
-<section class="moving-banner">
-<div class="banner-track">
-<span>
-Our service area covers Doncaster, Rotherham, Wakefield, Barnsley, and Pontefract, providing reliable and professional exterior cleaning for homes and businesses. We are committed to delivering high-quality results across all locations, ensuring every property looks its best. Whether you need driveway, patio, or roof cleaning, we offer dependable service you can trust throughout the region, with flexible scheduling to suit your needs.
-</div>
-</section>
-<div style="text-align:center; margin-top:20px;">
-<a href="tel:07368687820" class="btn">Call Us</a>
-</div>
-<div class="grid">
 
 <!-- 9 Service Cards -->
 <!-- Card 1 -->
