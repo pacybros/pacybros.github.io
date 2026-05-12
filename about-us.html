@@ -383,38 +383,7 @@ opacity: 1;
 #action-word.fade-out {
 opacity: 0;
 }
-/* Moving Banner Styles */
-.moving-banner {
-background: var(--dark);
-color: white;
-overflow: hidden;
-white-space: nowrap;
-padding: 15px 0;
-font-weight: 600;
-}
 
-.moving-banner .banner-track {
-display: inline-block;
-padding-left: 100%;
-animation: none; /* stop by default */
-}
-
-.moving-banner span {
-display: inline-block;
-margin: 0 40px;
-}
-
-@keyframes scroll-left {
-0% { transform: translateX(0); }
-100% { transform: translateX(-100%); }
-}
-
-/* Optional: slower scroll on mobile */
-@media(max-width:768px){
-.moving-banner .banner-track {
-animation-duration: 70s;
-}
-}
 .hero h1 {
 font-size: 4rem; /* desktop size */
 line-height: 1.2;
@@ -518,13 +487,6 @@ cursor: zoom-in;
 <section class="section">
 <div class="container">
 <h2 class="fade" style="text-align:center;font-size:2.5rem;">Our Service Area.</h2>
-<!-- Moving Banner -->
-<section class="moving-banner">
-<div class="banner-track">
-<span>
-Our service area covers Doncaster, Rotherham, Wakefield, Barnsley, and Pontefract, providing reliable and professional exterior cleaning for homes and businesses. We are committed to delivering high-quality results across all locations, ensuring every property looks its best. Whether you need driveway, patio, or roof cleaning, we offer dependable service you can trust throughout the region, with flexible scheduling to suit your needs.
-</div>
-</section>
 <div style="text-align:center; margin-top:20px;">
 <a href="tel:07368687820" class="btn">Call Us</a>
 </div>
@@ -828,36 +790,7 @@ obs.unobserve(banner); // run once only
 observer.observe(banner);
 });
 </script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-const lightbox = document.getElementById("lightbox");
-const lightboxImg = document.querySelector(".lightbox-img");
-const closeBtn = document.querySelector(".lightbox-close");
 
-document.querySelectorAll(".card img").forEach(img => {
-img.addEventListener("click", () => {
-lightboxImg.src = img.src;
-lightbox.classList.add("show");
-});
-});
-
-closeBtn.addEventListener("click", () => {
-lightbox.classList.remove("show");
-});
-
-lightbox.addEventListener("click", (e) => {
-if (e.target === lightbox) {
-lightbox.classList.remove("show");
-}
-});
-
-document.addEventListener("keydown", (e) => {
-if (e.key === "Escape") {
-lightbox.classList.remove("show");
-}
-});
-});
-</script>
 <!-- Image Lightbox -->
 <div id="lightbox" class="lightbox">
 <span class="lightbox-close">&times;</span>
