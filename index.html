@@ -676,19 +676,22 @@ menu.classList.toggle('show');
 <script type="application/ld+json">
 {
 "@context": "https://schema.org",
-"@type": "LocalBusiness",
+"@type": "ProfessionalService",
 "@id": "https://pacys.co.uk/#localbusiness",
 "name": "Pacys",
 "image": "https://pacys.co.uk/images/pacy-brothers.webp",
 "url": "https://pacys.co.uk/",
 "telephone": "+447368687820",
 "priceRange": "££",
-"description": "Trusted accredited local exterior cleaning specialists serving Doncaster and surrounding areas",
+"description": "Trusted accredited local exterior cleaning specialists serving Doncaster, Wakefield, Leeds, York and Nottingham.",
+"sameAs": [
+"https://www.facebook.com/thebinbrotherz"
+],
 "address": {
 "@type": "PostalAddress",
 "streetAddress": "12 Theodore Road",
 "addressLocality": "Askern",
-"addressRegion": "Doncaster",
+"addressRegion": "South Yorkshire",
 "postalCode": "DN6 0QG",
 "addressCountry": "GB"
 },
@@ -697,10 +700,28 @@ menu.classList.toggle('show');
 "latitude": 53.613416,
 "longitude": -1.163034
 },
-"areaServed": {
-"@type": "AdministrativeArea",
+"areaServed": [
+{
+"@type": "City",
 "name": "Doncaster"
 },
+{
+"@type": "City",
+"name": "Wakefield"
+},
+{
+"@type": "City",
+"name": "Leeds"
+},
+{
+"@type": "City",
+"name": "York"
+},
+{
+"@type": "City",
+"name": "Nottingham"
+}
+],
 "openingHoursSpecification": {
 "@type": "OpeningHoursSpecification",
 "dayOfWeek": [
@@ -717,19 +738,48 @@ menu.classList.toggle('show');
 },
 "hasOfferCatalog": {
 "@type": "OfferCatalog",
-"name": "Pressure Washing Service",
+"name": "Exterior Cleaning Services",
 "itemListElement": [
 {
 "@type": "Offer",
 "itemOffered": {
 "@type": "Service",
-"name": "Gutter Cleaning Service"
+"name": "Gutter Cleaning"
+}
+},
+{
+"@type": "Offer",
+"itemOffered": {
+"@type": "Service",
+"name": "Pressure Washing"
+}
+},
+{
+"@type": "Offer",
+"itemOffered": {
+"@type": "Service",
+"name": "Roof Cleaning"
+}
+},
+{
+"@type": "Offer",
+"itemOffered": {
+"@type": "Service",
+"name": "Driveway Cleaning"
+}
+},
+{
+"@type": "Offer",
+"itemOffered": {
+"@type": "Service",
+"name": "Patio Cleaning"
 }
 }
 ]
 }
 }
 </script>
+
 <script>
 document.addEventListener("DOMContentLoaded", function() {
 const words = ["Revived Exteriors","Pressure Washing","Gutter Clearing","Deep Cleans","Restored Surfaces","Moss Removal","Done Right"];
