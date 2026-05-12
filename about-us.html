@@ -798,7 +798,7 @@ const closeBtn = document.querySelector(".lightbox-close");
 
 if (!lightbox || !lightboxImg || !closeBtn) return;
 
-document.querySelectorAll(".card img").forEach(img => {
+document.querySelectorAll(".card img, .lightbox-trigger")
 
 img.addEventListener("click", () => {
 lightboxImg.src = img.src;
