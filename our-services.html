@@ -479,8 +479,8 @@ padding:100px 0 20px !important;
 <div class="hero-overlay"></div>
 <div class="container hero-content">
 <h1 class="fade hero-title">
-<span id="action-word">About Pacy's</span>
-<span class="hero-location">External Cleaning Services</span></h1>
+About Pacy's External Cleaning Services
+</h1>
 <p class="fade"><strong>Quality Work, Fairly Priced.</strong></p>
 <a href="https://pacys.co.uk/instant-quote.html" class="btn fade">Instant Quote</a>
 <div class="trust-row fade">
@@ -739,27 +739,7 @@ menu.classList.toggle('show');
 }
 </script>
 
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-const words = ["Patio Cleaning","Pressure Washing","Conservatory Valets","Roof Cleaning","Gutter Cleaning","Driveway Cleaning","Done Right"];
-let index = 0;
-const actionWord = document.getElementById("action-word");
 
-setInterval(() => {
-// Fade out
-actionWord.classList.add("fade-out");
-
-setTimeout(() => {
-// Change word
-index = (index + 1) % words.length;
-actionWord.textContent = words[index];
-
-// Fade in
-actionWord.classList.remove("fade-out");
-}, 500); // must match CSS transition duration
-}, 3000); // change word every 3 seconds
-});
-</script>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 const banner = document.querySelector(".moving-banner");
