@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="index, follow">
-<title>Pacys External Cleaning Doncaster| Professional Pressure washing, Gutter Cleaning, Instant Quote.</title>
-<meta name="description" content="External cleaning services Doncaster driveways, roofs, patios, and Gutter Cleaning. We restore your property’s appearance with safe, high-quality cleaning solutions.">
-<link rel="canonical" href="https://pacys.co.uk/about-us.html">
+<title>Pacys External Cleaning Doncaster| Professional Pressure washing, Doncaster</title>
+<meta name="description" content="Doncaster pressure washing specialists for driveways, roofs, patios, and gutter cleaning. Safe, effective exterior cleaning that restores and improves your property.">
+<link rel="canonical" href="https://pacys.co.uk/our services.html">
 
 <style>
 :root{
@@ -142,7 +142,23 @@ opacity:1;
 transform:translateY(0);
 }
 
-
+/* STATS */
+.stats{
+background:white;
+padding:60px 0;
+box-shadow:0 10px 40px rgba(0,0,0,0.05);
+}
+.stats-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:40px;
+text-align:center;
+}
+.stats h3{
+font-size:2.5rem;
+color:var(--dark);
+}
+.stats p{font-weight:600;}
 
 /* SERVICES */
 .section{padding:60px 10;}
@@ -196,7 +212,17 @@ box-shadow:0 15px 30px rgba(0,0,0,0.3);
 .grid .card:nth-child(8){transition-delay:0.40s;}
 .grid .card:nth-child(9){transition-delay:0.45s;}
 
-
+/* Fade children inside card sequentially */
+.card .fade-child{
+opacity:0;
+transform:translateY(20px);
+transition:all 0.3s ease;
+}
+.card.show .fade-child:nth-child(1){transition-delay:0.1s;opacity:1;transform:translateY(0);}
+.card.show .fade-child:nth-child(2){transition-delay:0.2s;opacity:1;transform:translateY(0);}
+.card.show .fade-child:nth-child(3){transition-delay:0.3s;opacity:1;transform:translateY(0);}
+.card.show .fade-child:nth-child(4){transition-delay:0.4s;opacity:1;transform:translateY(0);}
+.card.show .fade-child:nth-child(5){transition-delay:0.5s;opacity:1;transform:translateY(0);}
 
 footer{
 background:var(--dark);
@@ -266,11 +292,34 @@ margin-top:20px; /* optional extra spacing from very top */
 max-width: 95%;
 }
 
+.hero-location{
+display:block;
+font-size:1.6rem;
+margin-top:10px;
+font-weight:600;
+opacity:0.9;
+}
+#action-word,
+.hero-location{
+display:block;
+width:100%;
+text-align:center;
+}
+#action-word{
+font-size:1.9rem;
+display:block;
+line-height:1.2;
+}
 
-
-
-
-
+.hero-subtitle {
+font-size: 2rem; /* bigger than before, smaller than H1 */
+text-align: center;
+margin-top: 20px;
+font-weight: 700; /* slightly bolder */
+color: white;
+opacity: 0;
+transition: opacity 0.9s ease;
+}
 
 .hero p{
 font-size:1.2rem;
@@ -278,7 +327,13 @@ margin-bottom:30px;
 }
 }
 
-
+/* Cards spacing */
+.grid{
+gap:20px;
+}
+.card{
+padding:20px;
+}
 
 /* Hamburger menu */
 .menu-toggle{
@@ -424,8 +479,8 @@ padding:100px 0 20px !important;
 <div class="hero-overlay"></div>
 <div class="container hero-content">
 <h1 class="fade hero-title">
-About Pacy's External Cleaning Services
-</h1>
+<span id="action-word">About Pacy's</span>
+<span class="hero-location">External Cleaning Services</span></h1>
 <p class="fade"><strong>Quality Work, Fairly Priced.</strong></p>
 <a href="https://pacys.co.uk/instant-quote.html" class="btn fade">Instant Quote</a>
 <div class="trust-row fade">
@@ -546,7 +601,37 @@ Pacy Brothers Patrick and Frazer serving Doncaster, Sheffield, Leeds, Hull, Nott
 </div>
 
 </footer>
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+// Fade in
+const faders=document.querySelectorAll(".fade");
+const observer=new IntersectionObserver(function(entries,observer){
+entries.forEach(entry=>{
+if(!entry.isIntersecting) return;
+entry.target.classList.add("show");
+observer.unobserve(entry.target);
+});
+},{threshold:0.2});
+faders.forEach(el=>observer.observe(el));
 
+// Read more toggle
+const readMoreBtns = document.querySelectorAll(".read-more-btn");
+readMoreBtns.forEach(btn => {
+btn.addEventListener("click", () => {
+const parent = btn.parentElement;
+parent.classList.toggle("show");
+btn.textContent = parent.classList.contains("show") ? "Read Less ▲" : "Read More ▼";
+});
+});
+
+// Hamburger toggle
+const toggle = document.querySelector('.menu-toggle');
+const menu = document.querySelector('nav ul.menu');
+toggle.addEventListener('click', () => {
+menu.classList.toggle('show');
+});
+});
+</script>
 <script type="application/ld+json">
 {
 "@context": "https://schema.org",
@@ -654,8 +739,53 @@ Pacy Brothers Patrick and Frazer serving Doncaster, Sheffield, Leeds, Hull, Nott
 }
 </script>
 
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+const words = ["Pressure Washing","Gutter Cleaning"];
+let index = 0;
+const actionWord = document.getElementById("action-word");
 
+setInterval(() => {
+// Fade out
+actionWord.classList.add("fade-out");
 
+setTimeout(() => {
+// Change word
+index = (index + 1) % words.length;
+actionWord.textContent = words[index];
+
+// Fade in
+actionWord.classList.remove("fade-out");
+}, 500); // must match CSS transition duration
+}, 3000); // change word every 3 seconds
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+const banner = document.querySelector(".moving-banner");
+const track = document.querySelector(".moving-banner .banner-track");
+
+if (!banner || !track) return;
+
+const observer = new IntersectionObserver(
+(entries, obs) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+// Restart animation from the beginning
+track.style.animation = "none";
+track.offsetHeight; // force reflow
+track.style.animation = "scroll-left 70s linear infinite";
+
+obs.unobserve(banner); // run once only
+}
+});
+},
+{ threshold: 0.2 }
+);
+
+observer.observe(banner);
+});
+</script>
 
 <!-- Image Lightbox -->
 <div id="lightbox" class="lightbox">
