@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="index, follow">
 
-<title>Exterior Cleaning Quote Calculator | Pacys</title>
+<title>Exterior Cleaning Quote Calculator | HomeRepairs4U</title>
 
 <meta name="description" content="Instant online quote calculator for gutter clearing, pressure washing, driveway resanding and driveway sealing.">
 
-<link rel="canonical" href="https://pacys.co.uk/instant-quote.html">
+<link rel="canonical" href="https://homerepairs4u.com/local/exterior-cleaning-quote.html">
 
 <style>
 :root{
@@ -242,12 +242,13 @@ color:white;
 
 <nav>
 
-<div class="logo">Pacys</div>
+<div class="logo">HomeRepairs4U</div>
 
 <div class="menu-toggle">☰</div>
 
 <ul class="menu">
-<li><a href="https://pacys.co.uk/">Home</a></li>
+<li><a href="https://homerepairs4u.com/">Home</a></li>
+<li><a href="#">Instant Quote</a></li>
 </ul>
 
 </nav>
@@ -260,41 +261,67 @@ color:white;
 <div class="calc-container">
 
 <div class="hero-image">
-<img src="https://pacys.co.uk/images/online-quote.webp" alt="Cartoon illustration of two brothers promoting their instant online pressure washing quote calculator">
+<img src="https://homerepairs4u.com/images/before-after-fence.webp"
+alt="Cartoon illustration of two brothers promoting their instant online pressure washing quote calculator">
 </div>
 
 <h1>Exterior Cleaning Quote</h1>
 
 <p style="text-align:center; margin-top:10px; font-size:15px; line-height:1.5;">
-Use this calculator to get an instant estimate for:
+Get an instant online quote for:
 <br><br>
 • Gutter Clearing<br>
 • Pressure Washing<br>
 • Driveway Resanding<br>
 • Driveway Sealing
 <br><br>
-All prices are estimated based on average residential properties.
+For irregular shaped driveways simply enter up to 6 side lengths in metres and the calculator will estimate the area automatically.
 </p>
 
 <div class="card">
 
-<label>Gutter Clearing Length (meters)</label>
-<input type="number" id="gutterMeters" placeholder="Enter meters">
+<h3>Gutter Clearing</h3>
 
-<label>Pressure Washing Area (square meters)</label>
-<input type="number" id="pressureMeters" placeholder="Enter m²">
+<label>Gutter Length (meters)</label>
+<input type="number" id="gutterMeters" placeholder="Enter total gutter length">
 
-<label>Driveway Resanding Area (square meters)</label>
-<input type="number" id="resandMeters" placeholder="Enter m²">
+<hr style="margin:25px 0;">
 
-<label>Driveway Sealing Area (square meters)</label>
-<input type="number" id="sealMeters" placeholder="Enter m²">
+<h3>Driveway Measurements</h3>
+
+<p style="font-size:14px; line-height:1.5; margin-top:10px; margin-bottom:10px;">
+Enter up to 6 driveway side lengths in metres.
+The calculator will estimate the driveway area automatically.
+</p>
+
+<label>Side 1 (m)</label>
+<input type="number" class="driveSide">
+
+<label>Side 2 (m)</label>
+<input type="number" class="driveSide">
+
+<label>Side 3 (m)</label>
+<input type="number" class="driveSide">
+
+<label>Side 4 (m)</label>
+<input type="number" class="driveSide">
+
+<label>Side 5 (m)</label>
+<input type="number" class="driveSide">
+
+<label>Side 6 (m)</label>
+<input type="number" class="driveSide">
 
 </div>
 
 <div class="card breakdown">
 
 <strong>Breakdown</strong>
+
+<div>
+<span>Estimated Driveway Area</span>
+<span id="areaEstimate">0.0m²</span>
+</div>
 
 <div>
 <span>Gutter Clearing</span>
@@ -319,15 +346,15 @@ All prices are estimated based on average residential properties.
 </div>
 
 <p style="text-align:center; font-size:14px; line-height:1.5; margin-top:10px;">
-Optional: Send your quote directly to us via WhatsApp so we can discuss your job and arrange a visit if required.
+Optional: Send your quote via WhatsApp so we can review the measurements before arranging a visit.
 </p>
 
 <button class="whatsapp" onclick="sendWhatsApp()">
 Send Quote via WhatsApp
 </button>
 
-<a href="tel:07368687820" class="btn">
-Call Pacys
+<a href="tel:07735873694" class="btn">
+Call Martin
 </a>
 
 </div>
@@ -356,11 +383,11 @@ menu.classList.toggle('show');
 
 /* INPUTS */
 const gutterInput = document.getElementById("gutterMeters");
-const pressureInput = document.getElementById("pressureMeters");
-const resandInput = document.getElementById("resandMeters");
-const sealInput = document.getElementById("sealMeters");
+const driveSides = document.querySelectorAll(".driveSide");
 
 /* OUTPUTS */
+const areaEstimateEl = document.getElementById("areaEstimate");
+
 const gutterCostEl = document.getElementById("gutterCost");
 const pressureCostEl = document.getElementById("pressureCost");
 const resandCostEl = document.getElementById("resandCost");
@@ -371,68 +398,122 @@ const totalEl = document.getElementById("total");
 /* CALCULATE */
 function calculate(){
 
+/* GUTTERS */
 let gutterMeters = parseFloat(gutterInput.value) || 0;
-let pressureMeters = parseFloat(pressureInput.value) || 0;
-let resandMeters = parseFloat(resandInput.value) || 0;
-let sealMeters = parseFloat(sealInput.value) || 0;
+
+/* DRIVEWAY SIDES */
+let perimeter = 0;
+
+driveSides.forEach(side => {
+perimeter += parseFloat(side.value) || 0;
+});
+
+/* AREA ESTIMATE */
+let estimatedArea = Math.pow((perimeter / 4), 2) * 0.8;
+
+if(perimeter === 0){
+estimatedArea = 0;
+}
 
 /* PRICING */
-let gutterCost = gutterMeters * 2.65;
-let pressureCost = pressureMeters * 2.65;
-let resandCost = resandMeters * 2.85;
-let sealCost = sealMeters * 4;
+let gutterCost = gutterMeters * 3.5;
+
+let pressureCost = estimatedArea * 3.5;
+
+let resandCost = estimatedArea * 3.5;
+
+let sealCost = estimatedArea * 4;
 
 /* TOTAL */
-let total = gutterCost + pressureCost + resandCost + sealCost;
+let total =
+gutterCost +
+pressureCost +
+resandCost +
+sealCost;
 
 /* DISPLAY */
-gutterCostEl.innerText = "£" + gutterCost.toFixed(2);
-pressureCostEl.innerText = "£" + pressureCost.toFixed(2);
-resandCostEl.innerText = "£" + resandCost.toFixed(2);
-sealCostEl.innerText = "£" + sealCost.toFixed(2);
+areaEstimateEl.innerText =
+estimatedArea.toFixed(1) + "m²";
 
-totalEl.innerText = total.toFixed(2);
+gutterCostEl.innerText =
+"£" + gutterCost.toFixed(2);
+
+pressureCostEl.innerText =
+"£" + pressureCost.toFixed(2);
+
+resandCostEl.innerText =
+"£" + resandCost.toFixed(2);
+
+sealCostEl.innerText =
+"£" + sealCost.toFixed(2);
+
+totalEl.innerText =
+total.toFixed(2);
 
 }
 
 /* WHATSAPP */
 function sendWhatsApp(){
 
-let gutterMeters = gutterInput.value || 0;
-let pressureMeters = pressureInput.value || 0;
-let resandMeters = resandInput.value || 0;
-let sealMeters = sealInput.value || 0;
+let gutterMeters =
+gutterInput.value || 0;
 
-let gutterCost = gutterCostEl.innerText;
-let pressureCost = pressureCostEl.innerText;
-let resandCost = resandCostEl.innerText;
-let sealCost = sealCostEl.innerText;
+let sides = [];
 
-let total = totalEl.innerText;
+driveSides.forEach((side, index) => {
+
+if(side.value){
+
+sides.push(
+`Side ${index + 1}: ${side.value}m`
+);
+
+}
+
+});
+
+let perimeter = 0;
+
+driveSides.forEach(side => {
+
+perimeter +=
+parseFloat(side.value) || 0;
+
+});
+
+let estimatedArea =
+Math.pow((perimeter / 4), 2) * 0.8;
+
+if(perimeter === 0){
+estimatedArea = 0;
+}
 
 let msg =
 `Exterior Cleaning Quote Request:
 
 🧹 Gutter Clearing:
 ${gutterMeters}m
-${gutterCost}
+
+📐 Driveway Measurements:
+${sides.join('\n')}
+
+📏 Estimated Driveway Area:
+${estimatedArea.toFixed(1)}m²
 
 💦 Pressure Washing:
-${pressureMeters}m²
-${pressureCost}
+${pressureCostEl.innerText}
 
 🪨 Driveway Resanding:
-${resandMeters}m²
-${resandCost}
+${resandCostEl.innerText}
 
 🛡️ Driveway Sealing:
-${sealMeters}m²
-${sealCost}
+${sealCostEl.innerText}
 
-💰 Total: £${total}`;
+💰 Total:
+£${totalEl.innerText}`;
 
 window.open(
-`https://wa.me/447368687820?text=${encodeURIComponent(msg)}`,
+`https://wa.me/447735873694?text=${encodeURIComponent(msg)}`,
 '_blank'
 );
 
@@ -450,4 +531,3 @@ calculate();
 
 </body>
 </html>
-
