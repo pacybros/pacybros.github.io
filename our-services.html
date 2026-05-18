@@ -1,1 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pacys</title>
 
+<style>
+:root{
+--accent:#ffb703;
+--dark:#0f2027;
+--light:#f5f7fa;
+--max:1200px;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Segoe UI',sans-serif;
+background:var(--light);
+color:#222;
+}
+
+.container{
+width:90%;
+max-width:var(--max);
+margin:auto;
+}
+
+/* HEADER */
+header{
+position:sticky;
+top:0;
+background:rgba(15,32,39,0.95);
+backdrop-filter:blur(10px);
+z-index:1000;
+}
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 0;
+position:relative;
+flex-wrap:wrap;
+}
+
+.logo{
+color:white;
+font-weight:800;
+font-size:1.6rem;
+}
+
+nav ul.menu{
+display:flex;
+gap:20px;
+list-style:none;
+}
+
+nav ul.menu li a{
+color:white;
+text-decoration:none;
+font-weight:600;
+padding:8px 12px;
+transition:0.3s;
+}
+
+nav ul.menu li a:hover{
+color:var(--accent);
+}
+
+.menu-toggle{
+display:none;
+font-size:1.8rem;
+color:white;
+cursor:pointer;
+}
+
+@media(max-width:768px){
+
+.menu-toggle{
+display:block;
+}
+
+nav ul.menu{
+flex-direction:column;
+display:none;
+background:rgba(15,32,39,0.95);
+width:100%;
+position:absolute;
+top:70px;
+left:0;
+padding:10px 0;
+gap:10px;
+}
+
+nav ul.menu.show{
+display:flex;
+}
+
+nav ul.menu li{
+text-align:center;
+}
+}
+
+/* FOOTER */
+footer{
+background:var(--dark);
+color:white;
+text-align:center;
+padding:40px 0;
+margin-top:50px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="container">
+
+<nav>
+
+<div class="logo">Pacys</div>
+
+<div class="menu-toggle">☰</div>
+
+<ul class="menu">
+<li><a href="https://pacys.co.uk/">Home</a></li>
+</ul>
+
+</nav>
+
+</div>
+</header>
+
+<footer>
+<div class="container">
+<p>&copy; 2026 Pacys External Cleaning. All rights reserved.</p>
+</div>
+</footer>
+
+</body>
+</html>
