@@ -4,12 +4,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="preload" as="image" href="https://pacys.co.uk/images/pacys-van.webp">
+
 <title>External Cleaning Doncaster | Pressure Washing & Gutter Cleaning | Pacys</title>
+
 <meta name="description" content="Professional external cleaning in Doncaster including pressure washing, driveway cleaning, patio cleaning, gutter clearing, roof cleaning and soft washing services by Pacys.">
 <meta name="robots" content="index, follow">
 
 <link rel="canonical" href="https://pacys.co.uk/test.html">
+
+<!-- Preload ONLY LCP image -->
+<link rel="preload" as="image" href="https://pacys.co.uk/images/pacys-van.webp">
+
+<!-- Speed hints -->
+<link rel="preconnect" href="https://pacys.co.uk">
+
+<!-- Favicon (optional but good practice) -->
+<link rel="icon" href="/favicon.ico">
 
 <style>
 body {
@@ -19,17 +29,13 @@ background: #fff;
 color: #000;
 }
 
-/* MENU */
+/* Keep CSS minimal in head to reduce blocking */
 .menu {
 background: #000;
 color: #fff;
 display: flex;
 justify-content: space-between;
 padding: 15px 20px;
-}
-
-.logo {
-font-weight: bold;
 }
 
 .menu a {
@@ -39,19 +45,10 @@ margin-left: 15px;
 font-size: 14px;
 }
 
-/* CONTENT */
 .content {
 max-width: 900px;
 margin: auto;
 padding: 40px 20px;
-}
-
-h2 {
-margin-top: 60px;
-}
-
-p {
-margin-bottom: 10px;
 }
 
 img {
@@ -77,7 +74,7 @@ background: #fff;
 color: #000;
 }
 
-/* LIGHTBOX */
+/* Lightbox only if needed here */
 .lightbox {
 display: none;
 position: fixed;
@@ -95,15 +92,6 @@ z-index: 1000;
 max-width: 90%;
 max-height: 90%;
 border: 2px solid #fff;
-}
-
-/* FOOTER */
-footer {
-background: #000;
-color: #fff;
-text-align: center;
-padding: 20px;
-margin-top: 60px;
 }
 </style>
 </head>
