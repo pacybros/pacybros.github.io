@@ -38,12 +38,94 @@ justify-content: space-between;
 padding: 15px 20px;
 }
 
-.menu a {
+.menu {
+background: #000;
+color: #fff;
+padding: 0;
+position: sticky;
+top: 0;
+z-index: 1000;
+border-bottom: 1px solid #222;
+}
+
+.menu-container {
+max-width: 1100px;
+margin: auto;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 15px 20px;
+}
+
+.logo {
+font-size: 24px;
+font-weight: bold;
+letter-spacing: 1px;
+}
+
+.logo a {
 color: #fff;
 text-decoration: none;
-margin-left: 15px;
-font-size: 14px;
 }
+
+.nav-links {
+display: flex;
+align-items: center;
+gap: 20px;
+}
+
+.nav-links a {
+color: #fff;
+text-decoration: none;
+font-size: 15px;
+padding: 8px 0;
+transition: opacity 0.2s ease;
+}
+
+.nav-links a:hover {
+opacity: 0.7;
+}
+
+.hamburger {
+display: none;
+font-size: 30px;
+cursor: pointer;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+.hamburger {
+display: block;
+}
+
+.nav-links {
+display: none;
+position: absolute;
+top: 70px;
+left: 0;
+width: 100%;
+background: #000;
+flex-direction: column;
+align-items: flex-start;
+padding: 10px 0;
+gap: 0;
+border-top: 1px solid #222;
+}
+
+.nav-links.active {
+display: flex;
+}
+
+.nav-links a {
+width: 100%;
+padding: 15px 20px;
+border-bottom: 1px solid #111;
+font-size: 16px;
+}
+
+} 
+
 
 .content {
 max-width: 900px;
@@ -115,12 +197,26 @@ text-decoration: underline;
 
 <!-- MENU -->
 <div class="menu">
-<div class="logo">Pacys</div>
-<div>
+
+<div class="menu-container">
+
+<div class="logo">
+<a href="https://pacys.co.uk/">Pacys</a>
+</div>
+
+<div class="hamburger" onclick="toggleMenu()">
+☰
+</div>
+
+<div class="nav-links" id="navLinks">
 <a href="https://pacys.co.uk/">Home</a>
-<a href="https://pacys.co.uk/instant-quote">Get Instant Quote</a>
+<a href="https://pacys.co.uk/instant-quote">Instant Quote</a>
+<a href="https://pacys.co.uk/about-us">About Us</a>
+<a href="tel:07368687820">Call Us</a>
 </div>
+
 </div>
+
 
 <!-- CONTENT -->
 <main class="content">
@@ -317,5 +413,11 @@ document.getElementById("lightbox").style.display = "none";
 }
 }
 </script>
+<script>
+function toggleMenu() {
+document.getElementById("navLinks").classList.toggle("active");
+}
+</script> 
+
 </body>
 </html>
